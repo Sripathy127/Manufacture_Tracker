@@ -211,8 +211,8 @@ function VirtualizedList({
               data-index={virtualRow.index}
               ref={rowVirtualizer.measureElement}
               className={cn(
-                "p-3 hover:bg-orange-60 border-b absolute top-0 left-0 w-full",
-                selectedIds.includes(item.id) ? "bg-orange-40" : "bg-white"
+                "p-3 hover:bg-orange-60 border-b border-border-interactive absolute top-0 left-0 w-full",
+                selectedIds.includes(item.id) ? "bg-sky-40" : "bg-white"
               )}
               style={{
                 transform: `translateY(${virtualRow.start}px)`,
@@ -300,8 +300,8 @@ function DropdownList({
       >
         <div
           className={cn(
-            "p-3 hover:bg-orange-60",
-            isAllSelected ? "bg-orange-40" : "bg-white"
+            "p-3 hover:bg-sky-60",
+            isAllSelected ? "bg-sky-40" : "bg-white"
           )}
         >
           <label className="flex items-center gap-2 rounded cursor-pointer">

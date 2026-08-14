@@ -21,8 +21,8 @@ export function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 mt-38">
-      <div className="text-black">Track your Batches</div>
+    <div className="flex flex-col items-center gap-4 mt-30">
+      <div className="text-4xl font-bold text-black">Track your Batches</div>
 
       <SearchLocationsAndProducts
         sites={sites}

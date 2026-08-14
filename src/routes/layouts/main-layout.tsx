@@ -11,7 +11,7 @@ export function MainLayout() {
       <TopbarContainer>
         <div>Manufacture Tracker</div>
       </TopbarContainer>
-      <main className={cn("flex-1 bg-neutral-blue flex flex-col min-h-0")}>
+      <main className={cn("flex-1 bg-sky-100 flex flex-col min-h-0")}>
         <Outlet context={{ sites }} />
       </main>
     </LayoutContainer>
