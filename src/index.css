@@ -3,6 +3,30 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+@font-face {
+  font-family: "Arboria-Bold";
+  src: url("./assets/fonts/Arboria-Bold.woff2") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arboria-Medium";
+  font-style: normal;
+  font-weight: 500;
+  /* src: url("./assets/fonts/Arboria-Medium.woff2") format("woff2"); */
+  src: url("./assets/fonts/Arboria-Medium.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham Narrow-Book";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/gotham-narrow-book.otf") format("otf");
+  font-display: swap;
+}
+
 @theme inline {
   /* Primitives - Orange */
   --color-orange-300: #963500;
