@@ -5,6 +5,7 @@ import type { Site } from "@/entities";
 import { apiEndpoints } from "@/api/endpoints";
 import { queryClient } from "@/api/react-query-config";
 import { siteFactory } from "@/tests/factories/sites";
+import { TimelinePage } from "./protected/timeline-page";
 
 const sitesLoader: LoaderFunction = async (): Promise<Site[]> => {
   const sites = await queryClient.fetchQuery<Site[]>({
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: LandingPage,
+      },
+      {
+        path: "/manufacture-tracker",
+        Component: TimelinePage,
       },
     ],
   },
