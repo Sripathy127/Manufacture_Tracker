@@ -16,8 +16,6 @@ export function MainLayout() {
   const handleSubmit = (selections: {
     siteIds: string[];
     productFamilyIds?: string[];
-    mrpControllerIds?: string[];
-    secondaryFilterType: "ProductFamily" | "MRPController";
   }) => {
     setSitesProductsMRPFiltersValue({
       ...selections,

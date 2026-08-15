@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 // import { BatchTimeline } from "@/components/calendar-timeline/batch-timeline";
-import { LoadingOverlay } from "@/components/loading-overlay";
+// import { LoadingOverlay } from "@/components/loading-overlay";
 import { useQuery } from "@tanstack/react-query";
 import { apiEndpoints } from "@/api/endpoints";
 import type { Batch } from "@/entities";
@@ -55,6 +55,16 @@ export function TimelinePage() {
   const showOverlay = !loaded || (isFetching && isPlaceholderData);
 
   const batchesData = loaded?.data ?? [];
+  console.log(
+    "batchesData",
+    batchesData,
+    "showOverlay",
+    showOverlay,
+    "isFetching",
+    isFetching,
+    "isPlaceholderData",
+    isPlaceholderData
+  );
 
   return (
     <>
