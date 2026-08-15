@@ -10,8 +10,8 @@ export async function defaultQueryFn<T>(
 
 async function makeRequest<T>(
   endpoint: string,
-  body?: unknown,
-  retryCount: number = 0
+  body?: unknown
+  // retryCount: number = 0
 ): Promise<T> {
   const method = body ? "POST" : "GET";
 
