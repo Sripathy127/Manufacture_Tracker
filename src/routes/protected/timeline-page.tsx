@@ -1,12 +1,14 @@
 import { useMemo } from "react";
 
 // import { BatchTimeline } from "@/components/calendar-timeline/batch-timeline";
-// import { LoadingOverlay } from "@/components/loading-overlay";
+import { BatchTimeline } from "./../../components/calendar-timeline/batches-timeline";
+import { LoadingOverlay } from "@/components/loading-overlay";
 import { useQuery } from "@tanstack/react-query";
 import { apiEndpoints } from "@/api/endpoints";
 import type { Batch } from "@/entities";
 import { useBatchLoadingFilters } from "@/hooks/use-batch-filter-model";
 import { ErrorDisplay } from "@/components/error-disaplay";
+import { fetchMockBatches } from "@/tests/factories/batch";
 export function TimelinePage() {
   const { filterModel } = useBatchLoadingFilters();
 
@@ -35,6 +37,10 @@ export function TimelinePage() {
     data: Batch[];
   }>({
     queryKey: ["batches", apiEndpoints.batches, batchesQueryBody],
+    queryFn: async () => {
+      const response = await fetchMockBatches(100);
+      return response;
+    },
 
     placeholderData: (prev) => prev,
   });
@@ -55,22 +61,11 @@ export function TimelinePage() {
   const showOverlay = !loaded || (isFetching && isPlaceholderData);
 
   const batchesData = loaded?.data ?? [];
-  console.log(
-    "batchesData",
-    batchesData,
-    "showOverlay",
-    showOverlay,
-    "isFetching",
-    isFetching,
-    "isPlaceholderData",
-    isPlaceholderData
-  );
 
   return (
     <>
-      {/* <BatchTimeline batches={batchesData} /> */}
-      <div>coming soon</div>
-      {/* {showOverlay && <LoadingOverlay delay={loaded ? 100 : 0} />} */}
+      <BatchTimeline batches={batchesData} />
+      {showOverlay && <LoadingOverlay delay={loaded ? 100 : 0} />}
     </>
   );
 }
