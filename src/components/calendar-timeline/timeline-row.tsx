@@ -26,6 +26,7 @@ import { cn } from "@/lib/utils";
 import { InvestigationsDropdown } from "./investigation-data-dropdown";
 import { ShippingStatus } from "./shipping-status";
 import { isAfter, isBefore } from "date-fns";
+import { createBatchDetailFromRequest } from "@/tests/factories/batch-detail";
 
 export function TimelineRow({
   batch,
@@ -55,7 +56,10 @@ export function TimelineRow({
 
   const { data: batchDetails, isLoading } = useQuery<BatchDetail>({
     queryKey: ["batch-detail", apiEndpoints.batch(batch.batchId)],
-
+    queryFn: async () => {
+      const response = await createBatchDetailFromRequest(batch.batchId, batch);
+      return response;
+    },
     enabled: isExpanded,
   });
 
